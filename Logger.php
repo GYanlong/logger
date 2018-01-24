@@ -564,6 +564,9 @@ class Logger
      */
     public function catchSIGINT()
     {
+        if (!extension_loaded('pcntl')) {
+            return;
+        }
         declare(ticks = 1);
         pcntl_signal(SIGINT, function() {
            echo "\n\n捕获到SIGINT信号，程序退出\n\n";
