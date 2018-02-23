@@ -129,7 +129,7 @@ class Logger
 
     public function __construct($log_dir)
     {
-        if (!is_dir($log_dir) || is_writable($log_dir)) {
+        if (!is_dir($log_dir) || !is_writable($log_dir)) {
             echo "Error : error log dir\n";
             exit;
         }
